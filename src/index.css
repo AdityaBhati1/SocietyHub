@@ -1,0 +1,563 @@
+@import "tailwindcss";
+
+/*
+ * ═══════════════════════════════════════════════════════════════
+ * SOCIETYHUB — DESIGN TOKENS
+ * ═══════════════════════════════════════════════════════════════
+ *
+ * Two atmospheres:
+ *   Light  → warm cream / parchment editorial
+ *   Dark   → "Midnight" — warm charcoal, not a cold inversion
+ *
+ * Palette philosophy:
+ *   Desaturated, sophisticated, calm.
+ *   One dominant accent (sage) with muted supporting tones.
+ *
+ * Typography:
+ *   Display / Serif  → Instrument Serif
+ *   Body / Sans      → DM Sans
+ */
+
+/* ── Tailwind v4 Theme ──────────────────────────────────────── */
+
+@theme {
+  /* Font families */
+  --font-serif: "Instrument Serif", "Georgia", serif;
+  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+
+  /* Breakpoints */
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+
+  /* Spacing scale — generous */
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+  --spacing-26: 6.5rem;
+  --spacing-30: 7.5rem;
+  --spacing-34: 8.5rem;
+
+  /* Border radius */
+  --radius-xs: 3px;
+  --radius-sm: 5px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-pill: 100px;
+}
+
+
+/* ── Light Theme (default) ──────────────────────────────────── */
+
+:root {
+  color-scheme: light;
+
+  /* Backgrounds & Canvas */
+  --color-bg:                #f6f3ee;   /* warm editorial cream canvas       */
+  --color-bg-alt:            #ede7dc;   /* deeper warm sand for section bands */
+  --color-surface:           #ffffff;   /* crisp white card & panel surface  */
+  --color-surface-secondary: #f0ebe1;   /* soft warm gray/cream secondary panel*/
+  --color-surface-elevated:  #ffffff;   /* elevated dropdowns, active chips  */
+  --color-surface-hover:     #ece5d8;   /* responsive warm hover surface     */
+  --color-surface-input:     #ffffff;   /* clean distinct input field surface*/
+
+  /* Typography */
+  --color-text-primary:      #1f1e1d;   /* rich charcoal ink (high contrast) */
+  --color-text-secondary:    #5c564f;   /* warm slate gray body text         */
+  --color-text-tertiary:     #8c8479;   /* refined metadata, accessible      */
+  --color-text-inverse:      #ffffff;   /* white text for inverted buttons   */
+
+  /* Borders */
+  --color-border:            #d8d1c5;   /* standard visible neutral border   */
+  --color-border-light:      #e7e1d6;   /* delicate subtle divider           */
+  --color-border-strong:     #b8b0a2;   /* prominent outlines / active cards */
+  --color-border-hover:      #aba294;   /* interactive hover state           */
+
+  /* Accent — prestigious deep forest sage */
+  --color-accent:            #385e42;   /* deep forest sage (high contrast)  */
+  --color-accent-hover:      #2b4a34;
+  --color-accent-muted:      #6e8f77;
+  --color-accent-subtle:     #e5efe7;   /* soft sage wash                    */
+  --color-accent-text:       #ffffff;   /* crisp white text on accent button */
+
+  /* Selection States (Find My Society & Filters) */
+  --color-check-bg:          #ffffff;   /* high contrast checkmark box       */
+  --color-check-fg:          #385e42;   /* dark sage check icon              */
+
+  /* Supporting Category Colors — WCAG AA contrast foreground + soft tinted background */
+  --color-dusty-blue:        #2d5885;
+  --color-dusty-blue-subtle: #e6eef7;
+  --color-dusty-blue-border: #c7daf0;
+  --color-peach:             #994a28;
+  --color-peach-subtle:      #faede6;
+  --color-peach-border:      #f2d2c2;
+  --color-pale-yellow:       #806316;   /* deep golden amber (not pale yellow!) */
+  --color-pale-yellow-subtle:#fcf4da;
+  --color-pale-yellow-border:#ede0b2;
+  --color-lavender:          #665294;
+  --color-lavender-subtle:   #f1ecfb;
+  --color-lavender-border:   #dbd0f2;
+  --color-warm-red:          #9c3535;
+  --color-warm-red-subtle:   #fae8e8;
+  --color-warm-red-border:   #f2cccc;
+
+  /* Semantic Feedback */
+  --color-success:           #385e42;
+  --color-success-subtle:    #e5efe7;
+  --color-warning:           #994a28;
+  --color-warning-subtle:    #faede6;
+  --color-error:             #9c3535;
+  --color-error-subtle:      #fae8e8;
+
+  /* Shadows — warm-tinted soft depth */
+  --shadow-xs:  0 1px 2px  rgba(50, 42, 34, 0.05);
+  --shadow-sm:  0 1px 3px  rgba(50, 42, 34, 0.07), 0 1px 2px rgba(50, 42, 34, 0.04);
+  --shadow-md:  0 4px 10px rgba(50, 42, 34, 0.08), 0 2px 4px rgba(50, 42, 34, 0.04);
+  --shadow-lg:  0 12px 24px rgba(50, 42, 34, 0.09), 0 4px 8px rgba(50, 42, 34, 0.04);
+
+  /* Motion System Tokens — Restrained, Editorial, Performant */
+  --ease-editorial:      cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-standard:       cubic-bezier(0.2, 0, 0, 1);
+  --ease-in-out:         cubic-bezier(0.4, 0, 0.2, 1);
+
+  --duration-micro:      160ms;
+  --duration-normal:     240ms;
+  --duration-transition: 280ms;
+  --duration-reveal:     460ms;
+
+  /* Transitions */
+  --transition-fast:   var(--duration-micro) var(--ease-editorial);
+  --transition-normal: var(--duration-normal) var(--ease-editorial);
+  --transition-slow:   var(--duration-reveal) var(--ease-editorial);
+  --transition-theme:  280ms ease;
+
+  /* Layout */
+  --page-max-width:    1480px;
+  --page-gutter:       1.25rem;
+  --nav-height:        3.75rem;
+
+  /* Typography sizes */
+  --text-xs:    0.75rem;
+  --text-sm:    0.8125rem;
+  --text-base:  0.9375rem;
+  --text-lg:    1.0625rem;
+  --text-xl:    1.25rem;
+  --text-2xl:   1.5rem;
+  --text-3xl:   2rem;
+  --text-4xl:   2.5rem;
+  --text-5xl:   3.25rem;
+}
+
+
+/* ── Midnight Theme (Dark) ─────────────────────────────────── */
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* Backgrounds & Canvas */
+  --color-bg:                #141312;   /* warm espresso charcoal base       */
+  --color-bg-alt:            #1c1a18;   /* lifted section divider & ticker   */
+  --color-surface:           #22201e;   /* distinct lifted charcoal card     */
+  --color-surface-secondary: #2b2825;   /* secondary container & tags        */
+  --color-surface-elevated:  #34312d;   /* elevated dropdowns, active chips  */
+  --color-surface-hover:     #2e2c28;   /* responsive card & row hover       */
+  --color-surface-input:     #1a1917;   /* distinct inset input surface      */
+
+  /* Typography */
+  --color-text-primary:      #f4eee4;   /* warm ivory (calm, high contrast)  */
+  --color-text-secondary:    #aba497;   /* warm slate gray body text         */
+  --color-text-tertiary:     #7a7469;   /* readable metadata                 */
+  --color-text-inverse:      #141312;   /* dark text for light elements      */
+
+  /* Borders */
+  --color-border:            #3c3934;   /* visibly distinct warm border      */
+  --color-border-light:      #2b2926;   /* subtle divider                    */
+  --color-border-strong:     #524d46;   /* prominent boundary                */
+  --color-border-hover:      #605b53;   /* clear interactive hover           */
+
+  /* Accent — luminous warm sage */
+  --color-accent:            #6fa177;   /* vibrant refined sage              */
+  --color-accent-hover:      #83b38a;
+  --color-accent-muted:      #4d7353;
+  --color-accent-subtle:     #1b2a1e;   /* deep rich sage wash               */
+  --color-accent-text:       #0d170f;   /* deep ink for high contrast on green*/
+
+  /* Selection States (Find My Society & Filters) */
+  --color-check-bg:          #0d170f;   /* deep dark checkmark box           */
+  --color-check-fg:          #6fa177;   /* glowing sage check icon           */
+
+  /* Supporting Category Colors — luminous foreground + deep tinted background */
+  --color-dusty-blue:        #8eb4e0;
+  --color-dusty-blue-subtle: #1c2836;
+  --color-dusty-blue-border: #2b3e54;
+  --color-peach:             #e89f80;
+  --color-peach-subtle:      #322119;
+  --color-peach-border:      #4e3226;
+  --color-pale-yellow:       #e5cd78;
+  --color-pale-yellow-subtle:#2d2714;
+  --color-pale-yellow-border:#483e20;
+  --color-lavender:          #bba8e6;
+  --color-lavender-subtle:   #271f38;
+  --color-lavender-border:   #3e3259;
+  --color-warm-red:          #e88585;
+  --color-warm-red-subtle:   #331c1c;
+  --color-warm-red-border:   #4e2a2a;
+
+  /* Semantic Feedback */
+  --color-success:           #6fa177;
+  --color-success-subtle:    #1b2a1e;
+  --color-warning:           #e89f80;
+  --color-warning-subtle:    #322119;
+  --color-error:             #e88585;
+  --color-error-subtle:      #331c1c;
+
+  /* Shadows — elegant elevation in dark mode without glowing */
+  --shadow-xs:  0 1px 2px  rgba(0, 0, 0, 0.35);
+  --shadow-sm:  0 1px 3px  rgba(0, 0, 0, 0.45), 0 1px 2px rgba(0, 0, 0, 0.30);
+  --shadow-md:  0 4px 10px rgba(0, 0, 0, 0.50), 0 2px 4px rgba(0, 0, 0, 0.35);
+  --shadow-lg:  0 12px 24px rgba(0, 0, 0, 0.55), 0 4px 8px rgba(0, 0, 0, 0.40);
+}
+
+
+/* ── Base Reset & Defaults ──────────────────────────────────── */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.65;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg);
+    transition:
+      background-color var(--transition-theme),
+      color var(--transition-theme);
+  }
+
+  img, video, svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    font: inherit;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    padding: 0;
+    color: inherit;
+  }
+
+  input, textarea, select {
+    font: inherit;
+    color: inherit;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-weight: 400;
+  }
+}
+
+
+/* ── Utility Classes ────────────────────────────────────────── */
+
+.font-display {
+  font-family: var(--font-serif);
+}
+
+.font-body {
+  font-family: var(--font-sans);
+}
+
+.page-container {
+  width: 100%;
+  max-width: var(--page-max-width);
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+/* Focus ring — accessible but styled to match */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-accent-subtle);
+  color: var(--color-text-primary);
+}
+
+
+/* ── Scrollbar (subtle) ─────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-tertiary);
+}
+
+
+/* ── Responsive gutter ──────────────────────────────────────── */
+
+@media (min-width: 768px) {
+  :root {
+    --page-gutter: 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --page-gutter: 2.25rem;
+  }
+}
+
+/* ── Hero Animations ────────────────────────────────────────── */
+
+@keyframes rotatingWordEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(22%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Editorial Stagger Entrance (Hero & Major Pages) ────────── */
+
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-stagger-1 { animation: heroFadeUp 420ms var(--ease-editorial) both; animation-delay: 30ms; }
+.hero-stagger-2 { animation: heroFadeUp 420ms var(--ease-editorial) both; animation-delay: 80ms; }
+.hero-stagger-3 { animation: heroFadeUp 420ms var(--ease-editorial) both; animation-delay: 130ms; }
+.hero-stagger-4 { animation: heroFadeUp 420ms var(--ease-editorial) both; animation-delay: 180ms; }
+.hero-stagger-5 { animation: heroFadeUp 420ms var(--ease-editorial) both; animation-delay: 230ms; }
+.hero-stagger-6 { animation: heroFadeUp 420ms var(--ease-editorial) both; animation-delay: 280ms; }
+.hero-stagger-7 { animation: heroFadeUp 520ms var(--ease-editorial) both; animation-delay: 330ms; }
+
+/* ── Global Page Transitions ────────────────────────────────── */
+
+@keyframes pageFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-transition {
+  animation: pageFadeIn var(--duration-transition) var(--ease-editorial) forwards;
+}
+
+/* ── Card & Chip Entrance ───────────────────────────────────── */
+
+@keyframes cardFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-entrance {
+  animation: cardFadeIn 240ms var(--ease-editorial) both;
+}
+
+@keyframes chipEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.chip-entrance {
+  animation: chipEnter 180ms var(--ease-editorial) both;
+}
+
+/* ── Comparison Tray Entrance ───────────────────────────────── */
+
+@keyframes trayEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tray-entrance {
+  animation: trayEnter 240ms var(--ease-editorial) forwards;
+}
+
+/* ── Question Step Transitions (Find My Society) ───────────── */
+
+@keyframes questionFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.question-fade {
+  animation: questionFadeIn 220ms var(--ease-editorial) forwards;
+}
+
+/* ── Staged Editorial Reveals (Detail & Dossier Pages) ───────── */
+
+@keyframes stagedReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.staged-reveal-1 { animation: stagedReveal 280ms var(--ease-editorial) both; animation-delay: 0ms; }
+.staged-reveal-2 { animation: stagedReveal 280ms var(--ease-editorial) both; animation-delay: 30ms; }
+.staged-reveal-3 { animation: stagedReveal 280ms var(--ease-editorial) both; animation-delay: 60ms; }
+.staged-reveal-4 { animation: stagedReveal 280ms var(--ease-editorial) both; animation-delay: 90ms; }
+.staged-reveal-5 { animation: stagedReveal 280ms var(--ease-editorial) both; animation-delay: 120ms; }
+.staged-reveal-6 { animation: stagedReveal 280ms var(--ease-editorial) both; animation-delay: 150ms; }
+.staged-reveal-7 { animation: stagedReveal 280ms var(--ease-editorial) both; animation-delay: 180ms; }
+.staged-reveal-8 { animation: stagedReveal 280ms var(--ease-editorial) both; animation-delay: 210ms; }
+
+/* ── Button & Control Micro-Interactions ─────────────────────── */
+
+.btn-press {
+  transition: transform var(--duration-micro) var(--ease-editorial),
+              background-color var(--duration-micro) ease,
+              border-color var(--duration-micro) ease,
+              box-shadow var(--duration-micro) ease;
+}
+
+.btn-press:active {
+  transform: scale(0.97);
+}
+
+.tab-press {
+  transition: all var(--duration-micro) var(--ease-editorial);
+}
+
+.tab-press:active {
+  transform: scale(0.96);
+}
+
+/* ── Restrained Timeline & Status Micro-Motion ──────────────── */
+
+@keyframes gentlePulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.status-pulse {
+  animation: gentlePulse 2.8s var(--ease-in-out) infinite;
+}
+
+/* ── Global Prefers Reduced Motion ──────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .card-entrance,
+  .page-transition,
+  .question-fade,
+  .tray-entrance,
+  .chip-entrance,
+  .status-pulse,
+  .hero-stagger-1,
+  .hero-stagger-2,
+  .hero-stagger-3,
+  .hero-stagger-4,
+  .hero-stagger-5,
+  .hero-stagger-6,
+  .hero-stagger-7,
+  .staged-reveal-1,
+  .staged-reveal-2,
+  .staged-reveal-3,
+  .staged-reveal-4,
+  .staged-reveal-5,
+  .staged-reveal-6,
+  .staged-reveal-7,
+  .staged-reveal-8 {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+
+
