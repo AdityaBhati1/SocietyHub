@@ -25,16 +25,16 @@ A student-built platform for discovering and exploring NSUT societies.
 ## Screenshots
 
 ### Home
-![SocietyHub Home](screenshots/home.png)
+![SocietyHub Home](Screenshots/home.png)
 
 ### Find My Society
-![Find My Society](screenshots/finder.png)
+![Find My Society](Screenshots/finder.png)
 
 ### Recruitment Radar
-![Recruitment Radar](screenshots/recruitment.png)
+![Recruitment Radar](Screenshots/recruitment.png)
 
 ### Compare
-![Compare Societies](screenshots/compare.png)
+![Compare Societies](Screenshots/compare.png)
 
 ## Running Locally
 
