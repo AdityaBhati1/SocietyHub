@@ -1,16 +1,43 @@
-# React + Vite
+# SocietyHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A student-built platform for discovering and exploring NSUT societies.
 
-Currently, two official plugins are available:
+> Built as an entrance-task prototype.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Browse 54 NSUT societies across multiple domains
+- Fast search, filtering, sorting and typo-tolerant discovery
+- **Find My Society** — personalized society recommendations
+- **Recruitment Radar** — explore recruitment stages and timelines
+- **Shortlist & Compare** — save societies and compare up to 3
+- Responsive design with light/dark themes
+- Accessible keyboard navigation and reduced-motion support
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the Oxlint configuration
+- React
+- Vite
+- JavaScript
+- Tailwind CSS
+- LocalStorage
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Screenshots
+
+### Home
+![SocietyHub Home](screenshots/home.png)
+
+### Find My Society
+![Find My Society](screenshots/finder.png)
+
+### Recruitment Radar
+![Recruitment Radar](screenshots/recruitment.png)
+
+### Compare
+![Compare Societies](screenshots/compare.png)
+
+## Running Locally
+
+```bash
+npm install
+npm run dev
