@@ -4,6 +4,10 @@ A student-built platform for discovering and exploring NSUT societies.
 
 > Built as an entrance-task prototype.
 
+## Live Demo
+
+🔗 **[View SocietyHub Live](https://society-hub-chi.vercel.app/)**
+
 ## Features
 
 - Browse 54 NSUT societies across multiple domains
